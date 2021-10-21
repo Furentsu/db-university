@@ -1,3 +1,9 @@
+===============
+
+GROUP BY
+
+===============
+
 1 - SELECT count(*) AS `students`, YEAR(`enrolment_date`) AS `year`
     FROM `students`
     GROUP BY `year`;
@@ -13,3 +19,34 @@
 4 - SELECT `department_id`, COUNT(*) AS `degrees`
     FROM `degrees`
     GROUP BY `department_id`;
+
+
+===============
+
+JOIN
+
+===============
+
+1 - SELECT students.name, students.surname, degrees.name AS degree, degrees.id AS degree_id
+    FROM `students`
+    JOIN `degrees`
+    ON students.degree_id = degrees.id
+    WHERE degrees.id = '53';
+
+2 - SELECT degrees.name, departments.name AS department
+    FROM `degrees`
+    JOIN `departments`
+    ON degrees.department_id = departments.id
+    WHERE departments.name = 'Dipartimento di Neuroscienze';
+
+3 - SELECT *
+    FROM `course_teacher`
+    JOIN `teachers`
+    ON course_teacher.teacher_id = teachers.id
+    WHERE teachers.id = 44;
+
+4 - SELECT *
+    FROM `students`
+    JOIN `degrees` ON students.degree_id = degrees.id
+    JOIN `departments` ON degrees.department_id = departments.id
+    ORDER BY students.name ASC;
