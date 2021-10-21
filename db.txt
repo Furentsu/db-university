@@ -1,5 +1,6 @@
 1 - SELECT `name`, `surname`, `date_of_birth`
     FROM `students`
+    -----------------> WHERE YEAR(`date_of_birth`) = '1990'
     WHERE `date_of_birth` BETWEEN '1990-01-01' AND '1990-12-31'
     ORDER BY `date_of_birth` ASC;
 
@@ -27,8 +28,13 @@
     FROM `degrees`
     WHERE `level` = 'magistrale';
 
-7 - SELECT COUNT(*) FROM `departments`;
+7 - SELECT COUNT(*) 
+    FROM `departments`;
 
 8 - SELECT * 
     FROM `teachers`
     WHERE `phone` IS NULL;
+
+9 - SELECT COUNT(*) AS 'numero_iscritti', YEAR(`date_of_birth`) AS `anno`
+    FROM `students`
+    GROUP BY `anno`;
