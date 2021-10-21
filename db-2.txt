@@ -57,4 +57,8 @@ JOIN
     JOIN `course_teacher`
     JOIN `teachers` ON course_teacher.teacher_id = teachers.id
 
-6 - 
+6 - SELECT teachers.surname, teachers.name, departments.name
+    FROM `teachers` 
+    JOIN `departments`
+    WHERE departments.name = 'Dipartimento di Matematica'
+    ORDER BY teachers.surname ASC
