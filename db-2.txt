@@ -50,3 +50,11 @@ JOIN
     JOIN `degrees` ON students.degree_id = degrees.id
     JOIN `departments` ON degrees.department_id = departments.id
     ORDER BY students.name ASC;
+
+5 - SELECT teachers.name, teachers.surname, courses.name AS single_course, degrees.name AS degree_name
+    FROM `degrees`
+    JOIN `courses` ON courses.degree_id = degrees.id
+    JOIN `course_teacher`
+    JOIN `teachers` ON course_teacher.teacher_id = teachers.id
+
+6 - 
