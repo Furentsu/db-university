@@ -57,8 +57,12 @@ JOIN
     JOIN `course_teacher`
     JOIN `teachers` ON course_teacher.teacher_id = teachers.id
 
-6 - SELECT teachers.surname, teachers.name, departments.name
-    FROM `teachers` 
-    JOIN `departments`
+6 - SELECT DISTINCT `teachers`.*
+    FROM teachers
+    JOIN course_teacher ON course_teacher.teacher_id = teachers.id
+    JOIN courses ON courses.id = course_teacher.course_id
+    JOIN degrees ON degrees.id = courses.degree_id
+    JOIN departments ON departments.id = degrees.department_id
     WHERE departments.name = 'Dipartimento di Matematica'
-    ORDER BY teachers.surname ASC
+
+7 - 
